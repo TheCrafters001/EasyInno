@@ -26,7 +26,7 @@ Partial Class EasyInno
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EasyInno))
         Me.MainControl = New System.Windows.Forms.TabControl()
         Me.SetupDetails = New System.Windows.Forms.TabPage()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.SoftwareDetailTabControl = New System.Windows.Forms.TabControl()
         Me.SoftwareInfoPage = New System.Windows.Forms.TabPage()
         Me.SoftwareNameLabel = New System.Windows.Forms.Label()
         Me.ApplicationPublisherTxtBox = New System.Windows.Forms.TextBox()
@@ -71,7 +71,7 @@ Partial Class EasyInno
         Me.NoInstallLocationChkBox = New System.Windows.Forms.CheckBox()
         Me.MainControl.SuspendLayout()
         Me.SetupDetails.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
+        Me.SoftwareDetailTabControl.SuspendLayout()
         Me.SoftwareInfoPage.SuspendLayout()
         Me.ApplicationFolderPage.SuspendLayout()
         Me.InnoCode.SuspendLayout()
@@ -109,7 +109,7 @@ Partial Class EasyInno
         '
         'SetupDetails
         '
-        Me.SetupDetails.Controls.Add(Me.TabControl1)
+        Me.SetupDetails.Controls.Add(Me.SoftwareDetailTabControl)
         Me.SetupDetails.Controls.Add(Me.Label1)
         Me.SetupDetails.Location = New System.Drawing.Point(4, 22)
         Me.SetupDetails.Name = "SetupDetails"
@@ -119,15 +119,15 @@ Partial Class EasyInno
         Me.SetupDetails.Text = "Setup Details"
         Me.SetupDetails.UseVisualStyleBackColor = True
         '
-        'TabControl1
+        'SoftwareDetailTabControl
         '
-        Me.TabControl1.Controls.Add(Me.SoftwareInfoPage)
-        Me.TabControl1.Controls.Add(Me.ApplicationFolderPage)
-        Me.TabControl1.Location = New System.Drawing.Point(6, 6)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(790, 536)
-        Me.TabControl1.TabIndex = 10
+        Me.SoftwareDetailTabControl.Controls.Add(Me.SoftwareInfoPage)
+        Me.SoftwareDetailTabControl.Controls.Add(Me.ApplicationFolderPage)
+        Me.SoftwareDetailTabControl.Location = New System.Drawing.Point(6, 6)
+        Me.SoftwareDetailTabControl.Name = "SoftwareDetailTabControl"
+        Me.SoftwareDetailTabControl.SelectedIndex = 0
+        Me.SoftwareDetailTabControl.Size = New System.Drawing.Size(790, 536)
+        Me.SoftwareDetailTabControl.TabIndex = 10
         '
         'SoftwareInfoPage
         '
@@ -548,7 +548,7 @@ Partial Class EasyInno
         Me.MainControl.ResumeLayout(False)
         Me.SetupDetails.ResumeLayout(False)
         Me.SetupDetails.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
+        Me.SoftwareDetailTabControl.ResumeLayout(False)
         Me.SoftwareInfoPage.ResumeLayout(False)
         Me.SoftwareInfoPage.PerformLayout()
         Me.ApplicationFolderPage.ResumeLayout(False)
@@ -583,7 +583,7 @@ Partial Class EasyInno
     Friend WithEvents AboutPage As TabPage
     Friend WithEvents EasyInnoAboutLabel As Label
     Friend WithEvents EasyInnoAboutBox As RichTextBox
-    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents SoftwareDetailTabControl As TabControl
     Friend WithEvents SoftwareInfoPage As TabPage
     Friend WithEvents ApplicationFolderPage As TabPage
     Friend WithEvents ApplicationPublisherTxtBox As TextBox
