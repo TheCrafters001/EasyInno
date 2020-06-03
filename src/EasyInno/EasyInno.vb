@@ -11,9 +11,11 @@
             AllowChangeInstallLocChkBox.Enabled = False
 
         End If
+        InnoCode_Conpiler.InnoCode()
     End Sub
 
     Private Sub EasyInno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Start()
+        WizardStyleComboBox.SelectedIndex = 0
     End Sub
 End Class

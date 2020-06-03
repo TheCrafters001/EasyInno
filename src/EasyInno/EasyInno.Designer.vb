@@ -28,6 +28,8 @@ Partial Class EasyInno
         Me.SetupDetails = New System.Windows.Forms.TabPage()
         Me.SoftwareDetailTabControl = New System.Windows.Forms.TabControl()
         Me.SoftwareInfoPage = New System.Windows.Forms.TabPage()
+        Me.btn_Creation = New System.Windows.Forms.Button()
+        Me.Btn_Compile = New System.Windows.Forms.Button()
         Me.SoftwareNameLabel = New System.Windows.Forms.Label()
         Me.ApplicationPublisherTxtBox = New System.Windows.Forms.TextBox()
         Me.SoftwareNameTxtBox = New System.Windows.Forms.TextBox()
@@ -44,6 +46,10 @@ Partial Class EasyInno
         Me.InstallLocationLabel = New System.Windows.Forms.Label()
         Me.ApplicationLocationTxtBox = New System.Windows.Forms.TextBox()
         Me.ProgramLocationDropdown = New System.Windows.Forms.ComboBox()
+        Me.AppShortCuts = New System.Windows.Forms.TabPage()
+        Me.WizardInfo = New System.Windows.Forms.TabPage()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.WizardStyleComboBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.InnoCode = New System.Windows.Forms.TabPage()
         Me.InnoCodeRichTxtBox = New System.Windows.Forms.RichTextBox()
@@ -66,6 +72,7 @@ Partial Class EasyInno
         Me.PreCompileSteps = New System.Windows.Forms.TabPage()
         Me.PostCompileSteps = New System.Windows.Forms.TabPage()
         Me.AboutPage = New System.Windows.Forms.TabPage()
+        Me.EasyInnoSnake = New System.Windows.Forms.PictureBox()
         Me.EasyInnoAboutBox = New System.Windows.Forms.RichTextBox()
         Me.EasyInnoAboutLabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -74,8 +81,11 @@ Partial Class EasyInno
         Me.SoftwareDetailTabControl.SuspendLayout()
         Me.SoftwareInfoPage.SuspendLayout()
         Me.ApplicationFolderPage.SuspendLayout()
+        Me.WizardInfo.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.InnoCode.SuspendLayout()
         Me.AboutPage.SuspendLayout()
+        CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainControl
@@ -123,6 +133,8 @@ Partial Class EasyInno
         '
         Me.SoftwareDetailTabControl.Controls.Add(Me.SoftwareInfoPage)
         Me.SoftwareDetailTabControl.Controls.Add(Me.ApplicationFolderPage)
+        Me.SoftwareDetailTabControl.Controls.Add(Me.AppShortCuts)
+        Me.SoftwareDetailTabControl.Controls.Add(Me.WizardInfo)
         Me.SoftwareDetailTabControl.Location = New System.Drawing.Point(6, 6)
         Me.SoftwareDetailTabControl.Name = "SoftwareDetailTabControl"
         Me.SoftwareDetailTabControl.SelectedIndex = 0
@@ -131,6 +143,8 @@ Partial Class EasyInno
         '
         'SoftwareInfoPage
         '
+        Me.SoftwareInfoPage.Controls.Add(Me.btn_Creation)
+        Me.SoftwareInfoPage.Controls.Add(Me.Btn_Compile)
         Me.SoftwareInfoPage.Controls.Add(Me.SoftwareNameLabel)
         Me.SoftwareInfoPage.Controls.Add(Me.ApplicationPublisherTxtBox)
         Me.SoftwareInfoPage.Controls.Add(Me.SoftwareNameTxtBox)
@@ -146,6 +160,26 @@ Partial Class EasyInno
         Me.SoftwareInfoPage.TabIndex = 0
         Me.SoftwareInfoPage.Text = "Software Info"
         Me.SoftwareInfoPage.UseVisualStyleBackColor = True
+        '
+        'btn_Creation
+        '
+        Me.btn_Creation.Enabled = False
+        Me.btn_Creation.Location = New System.Drawing.Point(595, 481)
+        Me.btn_Creation.Name = "btn_Creation"
+        Me.btn_Creation.Size = New System.Drawing.Size(100, 23)
+        Me.btn_Creation.TabIndex = 11
+        Me.btn_Creation.Text = "Creation Wizard"
+        Me.btn_Creation.UseVisualStyleBackColor = True
+        '
+        'Btn_Compile
+        '
+        Me.Btn_Compile.Enabled = False
+        Me.Btn_Compile.Location = New System.Drawing.Point(701, 481)
+        Me.Btn_Compile.Name = "Btn_Compile"
+        Me.Btn_Compile.Size = New System.Drawing.Size(75, 23)
+        Me.Btn_Compile.TabIndex = 10
+        Me.Btn_Compile.Text = "Compile"
+        Me.Btn_Compile.UseVisualStyleBackColor = True
         '
         'SoftwareNameLabel
         '
@@ -305,6 +339,46 @@ Partial Class EasyInno
         Me.ProgramLocationDropdown.Name = "ProgramLocationDropdown"
         Me.ProgramLocationDropdown.Size = New System.Drawing.Size(277, 21)
         Me.ProgramLocationDropdown.TabIndex = 0
+        '
+        'AppShortCuts
+        '
+        Me.AppShortCuts.Location = New System.Drawing.Point(4, 22)
+        Me.AppShortCuts.Name = "AppShortCuts"
+        Me.AppShortCuts.Size = New System.Drawing.Size(782, 510)
+        Me.AppShortCuts.TabIndex = 2
+        Me.AppShortCuts.Text = "Application Shortcuts"
+        Me.AppShortCuts.UseVisualStyleBackColor = True
+        '
+        'WizardInfo
+        '
+        Me.WizardInfo.Controls.Add(Me.GroupBox1)
+        Me.WizardInfo.Location = New System.Drawing.Point(4, 22)
+        Me.WizardInfo.Name = "WizardInfo"
+        Me.WizardInfo.Padding = New System.Windows.Forms.Padding(3)
+        Me.WizardInfo.Size = New System.Drawing.Size(782, 510)
+        Me.WizardInfo.TabIndex = 3
+        Me.WizardInfo.Text = "Wizard Info"
+        Me.WizardInfo.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.WizardStyleComboBox)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(149, 55)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Wizard Style"
+        '
+        'WizardStyleComboBox
+        '
+        Me.WizardStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WizardStyleComboBox.FormattingEnabled = True
+        Me.WizardStyleComboBox.Items.AddRange(New Object() {"modern", "classic"})
+        Me.WizardStyleComboBox.Location = New System.Drawing.Point(6, 19)
+        Me.WizardStyleComboBox.Name = "WizardStyleComboBox"
+        Me.WizardStyleComboBox.Size = New System.Drawing.Size(137, 21)
+        Me.WizardStyleComboBox.TabIndex = 1
         '
         'Label1
         '
@@ -502,6 +576,7 @@ Partial Class EasyInno
         '
         'AboutPage
         '
+        Me.AboutPage.Controls.Add(Me.EasyInnoSnake)
         Me.AboutPage.Controls.Add(Me.EasyInnoAboutBox)
         Me.AboutPage.Controls.Add(Me.EasyInnoAboutLabel)
         Me.AboutPage.Location = New System.Drawing.Point(4, 22)
@@ -510,6 +585,16 @@ Partial Class EasyInno
         Me.AboutPage.TabIndex = 20
         Me.AboutPage.Text = "About"
         Me.AboutPage.UseVisualStyleBackColor = True
+        '
+        'EasyInnoSnake
+        '
+        Me.EasyInnoSnake.Image = Global.EasyInno.My.Resources.Resources.EasyInno_Icon
+        Me.EasyInnoSnake.Location = New System.Drawing.Point(744, 3)
+        Me.EasyInnoSnake.Name = "EasyInnoSnake"
+        Me.EasyInnoSnake.Size = New System.Drawing.Size(55, 55)
+        Me.EasyInnoSnake.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.EasyInnoSnake.TabIndex = 2
+        Me.EasyInnoSnake.TabStop = False
         '
         'EasyInnoAboutBox
         '
@@ -553,8 +638,12 @@ Partial Class EasyInno
         Me.SoftwareInfoPage.PerformLayout()
         Me.ApplicationFolderPage.ResumeLayout(False)
         Me.ApplicationFolderPage.PerformLayout()
+        Me.WizardInfo.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         Me.InnoCode.ResumeLayout(False)
         Me.AboutPage.ResumeLayout(False)
+        Me.AboutPage.PerformLayout()
+        CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -604,4 +693,11 @@ Partial Class EasyInno
     Friend WithEvents FolderNameLabel As Label
     Friend WithEvents NoInstallLocationChkBox As CheckBox
     Friend WithEvents AllowChangeInstallLocChkBox As CheckBox
+    Friend WithEvents AppShortCuts As TabPage
+    Friend WithEvents WizardInfo As TabPage
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents WizardStyleComboBox As ComboBox
+    Friend WithEvents btn_Creation As Button
+    Friend WithEvents Btn_Compile As Button
+    Friend WithEvents EasyInnoSnake As PictureBox
 End Class
