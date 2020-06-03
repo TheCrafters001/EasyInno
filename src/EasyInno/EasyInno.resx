@@ -137,7 +137,15 @@ License: GNU GPL v3.0
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</value>
+    along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+
+Design: TheCrafters001
+Framework: .NET Framework 4.8
+Insperation: Inno Setup &amp; Inno Script Studio
+
+About:
+	This program was made to help users make use of Inno Setup. While Inno Script Studio can still be downloaded, it is not activly maintained.
+	EasyInno rebuilds Inno Script Sutdio from scratch in the .NET Framework.</value>
   </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

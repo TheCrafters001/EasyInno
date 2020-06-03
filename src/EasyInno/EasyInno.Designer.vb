@@ -37,6 +37,12 @@ Partial Class EasyInno
         Me.SoftwareVerTxtBox = New System.Windows.Forms.TextBox()
         Me.ApplicationWebsiteLabel = New System.Windows.Forms.Label()
         Me.ApplicationFolderPage = New System.Windows.Forms.TabPage()
+        Me.NoInstallLocationChkBox = New System.Windows.Forms.CheckBox()
+        Me.AllowChangeInstallLocChkBox = New System.Windows.Forms.CheckBox()
+        Me.FolderNameTxtBox = New System.Windows.Forms.TextBox()
+        Me.FolderNameLabel = New System.Windows.Forms.Label()
+        Me.InstallLocationLabel = New System.Windows.Forms.Label()
+        Me.ApplicationLocationTxtBox = New System.Windows.Forms.TextBox()
         Me.ProgramLocationDropdown = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.InnoCode = New System.Windows.Forms.TabPage()
@@ -63,12 +69,6 @@ Partial Class EasyInno
         Me.EasyInnoAboutBox = New System.Windows.Forms.RichTextBox()
         Me.EasyInnoAboutLabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ApplicationLocationTxtBox = New System.Windows.Forms.TextBox()
-        Me.InstallLocationLabel = New System.Windows.Forms.Label()
-        Me.FolderNameLabel = New System.Windows.Forms.Label()
-        Me.FolderNameTxtBox = New System.Windows.Forms.TextBox()
-        Me.AllowChangeInstallLocChkBox = New System.Windows.Forms.CheckBox()
-        Me.NoInstallLocationChkBox = New System.Windows.Forms.CheckBox()
         Me.MainControl.SuspendLayout()
         Me.SetupDetails.SuspendLayout()
         Me.SoftwareDetailTabControl.SuspendLayout()
@@ -237,6 +237,64 @@ Partial Class EasyInno
         Me.ApplicationFolderPage.TabIndex = 1
         Me.ApplicationFolderPage.Text = "Application Folder"
         Me.ApplicationFolderPage.UseVisualStyleBackColor = True
+        '
+        'NoInstallLocationChkBox
+        '
+        Me.NoInstallLocationChkBox.AutoSize = True
+        Me.NoInstallLocationChkBox.Location = New System.Drawing.Point(6, 148)
+        Me.NoInstallLocationChkBox.Name = "NoInstallLocationChkBox"
+        Me.NoInstallLocationChkBox.Size = New System.Drawing.Size(202, 17)
+        Me.NoInstallLocationChkBox.TabIndex = 6
+        Me.NoInstallLocationChkBox.Text = "This application doesn't need a folder"
+        Me.NoInstallLocationChkBox.UseVisualStyleBackColor = True
+        '
+        'AllowChangeInstallLocChkBox
+        '
+        Me.AllowChangeInstallLocChkBox.AutoSize = True
+        Me.AllowChangeInstallLocChkBox.Checked = True
+        Me.AllowChangeInstallLocChkBox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.AllowChangeInstallLocChkBox.Location = New System.Drawing.Point(6, 125)
+        Me.AllowChangeInstallLocChkBox.Name = "AllowChangeInstallLocChkBox"
+        Me.AllowChangeInstallLocChkBox.Size = New System.Drawing.Size(212, 17)
+        Me.AllowChangeInstallLocChkBox.TabIndex = 5
+        Me.AllowChangeInstallLocChkBox.Text = "Allow the user to change install location"
+        Me.AllowChangeInstallLocChkBox.UseVisualStyleBackColor = True
+        '
+        'FolderNameTxtBox
+        '
+        Me.FolderNameTxtBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FolderNameTxtBox.Location = New System.Drawing.Point(3, 99)
+        Me.FolderNameTxtBox.Name = "FolderNameTxtBox"
+        Me.FolderNameTxtBox.Size = New System.Drawing.Size(277, 20)
+        Me.FolderNameTxtBox.TabIndex = 4
+        Me.FolderNameTxtBox.Text = "My Application"
+        '
+        'FolderNameLabel
+        '
+        Me.FolderNameLabel.AutoSize = True
+        Me.FolderNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FolderNameLabel.Location = New System.Drawing.Point(6, 76)
+        Me.FolderNameLabel.Name = "FolderNameLabel"
+        Me.FolderNameLabel.Size = New System.Drawing.Size(111, 20)
+        Me.FolderNameLabel.TabIndex = 3
+        Me.FolderNameLabel.Text = "Folder Name"
+        '
+        'InstallLocationLabel
+        '
+        Me.InstallLocationLabel.AutoSize = True
+        Me.InstallLocationLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InstallLocationLabel.Location = New System.Drawing.Point(6, 3)
+        Me.InstallLocationLabel.Name = "InstallLocationLabel"
+        Me.InstallLocationLabel.Size = New System.Drawing.Size(132, 20)
+        Me.InstallLocationLabel.TabIndex = 2
+        Me.InstallLocationLabel.Text = "Install Location"
+        '
+        'ApplicationLocationTxtBox
+        '
+        Me.ApplicationLocationTxtBox.Location = New System.Drawing.Point(3, 53)
+        Me.ApplicationLocationTxtBox.Name = "ApplicationLocationTxtBox"
+        Me.ApplicationLocationTxtBox.Size = New System.Drawing.Size(277, 20)
+        Me.ApplicationLocationTxtBox.TabIndex = 1
         '
         'ProgramLocationDropdown
         '
@@ -475,64 +533,6 @@ Partial Class EasyInno
         '
         'Timer1
         '
-        '
-        'ApplicationLocationTxtBox
-        '
-        Me.ApplicationLocationTxtBox.Location = New System.Drawing.Point(3, 53)
-        Me.ApplicationLocationTxtBox.Name = "ApplicationLocationTxtBox"
-        Me.ApplicationLocationTxtBox.Size = New System.Drawing.Size(277, 20)
-        Me.ApplicationLocationTxtBox.TabIndex = 1
-        '
-        'InstallLocationLabel
-        '
-        Me.InstallLocationLabel.AutoSize = True
-        Me.InstallLocationLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InstallLocationLabel.Location = New System.Drawing.Point(6, 3)
-        Me.InstallLocationLabel.Name = "InstallLocationLabel"
-        Me.InstallLocationLabel.Size = New System.Drawing.Size(132, 20)
-        Me.InstallLocationLabel.TabIndex = 2
-        Me.InstallLocationLabel.Text = "Install Location"
-        '
-        'FolderNameLabel
-        '
-        Me.FolderNameLabel.AutoSize = True
-        Me.FolderNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FolderNameLabel.Location = New System.Drawing.Point(6, 76)
-        Me.FolderNameLabel.Name = "FolderNameLabel"
-        Me.FolderNameLabel.Size = New System.Drawing.Size(111, 20)
-        Me.FolderNameLabel.TabIndex = 3
-        Me.FolderNameLabel.Text = "Folder Name"
-        '
-        'FolderNameTxtBox
-        '
-        Me.FolderNameTxtBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FolderNameTxtBox.Location = New System.Drawing.Point(3, 99)
-        Me.FolderNameTxtBox.Name = "FolderNameTxtBox"
-        Me.FolderNameTxtBox.Size = New System.Drawing.Size(277, 20)
-        Me.FolderNameTxtBox.TabIndex = 4
-        Me.FolderNameTxtBox.Text = "My Application"
-        '
-        'AllowChangeInstallLocChkBox
-        '
-        Me.AllowChangeInstallLocChkBox.AutoSize = True
-        Me.AllowChangeInstallLocChkBox.Checked = True
-        Me.AllowChangeInstallLocChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.AllowChangeInstallLocChkBox.Location = New System.Drawing.Point(6, 125)
-        Me.AllowChangeInstallLocChkBox.Name = "AllowChangeInstallLocChkBox"
-        Me.AllowChangeInstallLocChkBox.Size = New System.Drawing.Size(212, 17)
-        Me.AllowChangeInstallLocChkBox.TabIndex = 5
-        Me.AllowChangeInstallLocChkBox.Text = "Allow the user to change install location"
-        Me.AllowChangeInstallLocChkBox.UseVisualStyleBackColor = True
-        '
-        'NoInstallLocationChkBox
-        '
-        Me.NoInstallLocationChkBox.AutoSize = True
-        Me.NoInstallLocationChkBox.Location = New System.Drawing.Point(6, 148)
-        Me.NoInstallLocationChkBox.Name = "NoInstallLocationChkBox"
-        Me.NoInstallLocationChkBox.Size = New System.Drawing.Size(202, 17)
-        Me.NoInstallLocationChkBox.TabIndex = 6
-        Me.NoInstallLocationChkBox.Text = "This application doesn't need a folder"
-        Me.NoInstallLocationChkBox.UseVisualStyleBackColor = True
         '
         'EasyInno
         '
