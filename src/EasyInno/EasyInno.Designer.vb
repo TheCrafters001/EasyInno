@@ -54,6 +54,7 @@ Partial Class EasyInno
         Me.InnoCode = New System.Windows.Forms.TabPage()
         Me.InnoCodeRichTxtBox = New System.Windows.Forms.RichTextBox()
         Me.FilesPage = New System.Windows.Forms.TabPage()
+        Me.files_lst = New System.Windows.Forms.ListBox()
         Me.Folders = New System.Windows.Forms.TabPage()
         Me.Icons = New System.Windows.Forms.TabPage()
         Me.INIFiles = New System.Windows.Forms.TabPage()
@@ -76,8 +77,10 @@ Partial Class EasyInno
         Me.EasyInnoAboutBox = New System.Windows.Forms.RichTextBox()
         Me.EasyInnoAboutLabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.files_lst = New System.Windows.Forms.ListBox()
-        Me.mainExecutable_lbl = New System.Windows.Forms.Label()
+        Me.mainAppExe_grp = New System.Windows.Forms.GroupBox()
+        Me.mainAppExe_txt = New System.Windows.Forms.TextBox()
+        Me.mainAppExeBrowse_btn = New System.Windows.Forms.Button()
+        Me.innoDetector_btn = New System.Windows.Forms.Button()
         Me.MainControl.SuspendLayout()
         Me.SetupDetails.SuspendLayout()
         Me.SoftwareDetailTabControl.SuspendLayout()
@@ -89,6 +92,7 @@ Partial Class EasyInno
         Me.FilesPage.SuspendLayout()
         Me.AboutPage.SuspendLayout()
         CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mainAppExe_grp.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainControl
@@ -146,6 +150,7 @@ Partial Class EasyInno
         '
         'SoftwareInfoPage
         '
+        Me.SoftwareInfoPage.Controls.Add(Me.innoDetector_btn)
         Me.SoftwareInfoPage.Controls.Add(Me.btn_Creation)
         Me.SoftwareInfoPage.Controls.Add(Me.Btn_Compile)
         Me.SoftwareInfoPage.Controls.Add(Me.softwareName_lbl)
@@ -156,7 +161,7 @@ Partial Class EasyInno
         Me.SoftwareInfoPage.Controls.Add(Me.appWebsite_txt)
         Me.SoftwareInfoPage.Controls.Add(Me.softwareVer_txt)
         Me.SoftwareInfoPage.Controls.Add(Me.appWebsite_lbl)
-        Me.SoftwareInfoPage.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SoftwareInfoPage.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SoftwareInfoPage.Location = New System.Drawing.Point(4, 22)
         Me.SoftwareInfoPage.Name = "SoftwareInfoPage"
         Me.SoftwareInfoPage.Padding = New System.Windows.Forms.Padding(3)
@@ -409,6 +414,8 @@ Partial Class EasyInno
         'InnoCodeRichTxtBox
         '
         Me.InnoCodeRichTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.InnoCodeRichTxtBox.Cursor = System.Windows.Forms.Cursors.No
+        Me.InnoCodeRichTxtBox.DetectUrls = False
         Me.InnoCodeRichTxtBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.InnoCodeRichTxtBox.Location = New System.Drawing.Point(0, 0)
         Me.InnoCodeRichTxtBox.Name = "InnoCodeRichTxtBox"
@@ -419,7 +426,7 @@ Partial Class EasyInno
         '
         'FilesPage
         '
-        Me.FilesPage.Controls.Add(Me.mainExecutable_lbl)
+        Me.FilesPage.Controls.Add(Me.mainAppExe_grp)
         Me.FilesPage.Controls.Add(Me.files_lst)
         Me.FilesPage.Location = New System.Drawing.Point(4, 22)
         Me.FilesPage.Name = "FilesPage"
@@ -428,6 +435,14 @@ Partial Class EasyInno
         Me.FilesPage.TabIndex = 1
         Me.FilesPage.Text = "Files"
         Me.FilesPage.UseVisualStyleBackColor = True
+        '
+        'files_lst
+        '
+        Me.files_lst.FormattingEnabled = True
+        Me.files_lst.Location = New System.Drawing.Point(385, 6)
+        Me.files_lst.Name = "files_lst"
+        Me.files_lst.Size = New System.Drawing.Size(411, 550)
+        Me.files_lst.TabIndex = 0
         '
         'Folders
         '
@@ -627,23 +642,42 @@ Partial Class EasyInno
         'Timer1
         '
         '
-        'files_lst
+        'mainAppExe_grp
         '
-        Me.files_lst.FormattingEnabled = True
-        Me.files_lst.Location = New System.Drawing.Point(32, 84)
-        Me.files_lst.Name = "files_lst"
-        Me.files_lst.Size = New System.Drawing.Size(120, 95)
-        Me.files_lst.TabIndex = 0
+        Me.mainAppExe_grp.Controls.Add(Me.mainAppExeBrowse_btn)
+        Me.mainAppExe_grp.Controls.Add(Me.mainAppExe_txt)
+        Me.mainAppExe_grp.Location = New System.Drawing.Point(6, 6)
+        Me.mainAppExe_grp.Name = "mainAppExe_grp"
+        Me.mainAppExe_grp.Size = New System.Drawing.Size(373, 160)
+        Me.mainAppExe_grp.TabIndex = 2
+        Me.mainAppExe_grp.TabStop = False
+        Me.mainAppExe_grp.Text = "Main Application Executable"
         '
-        'mainExecutable_lbl
+        'mainAppExe_txt
         '
-        Me.mainExecutable_lbl.AutoSize = True
-        Me.mainExecutable_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mainExecutable_lbl.Location = New System.Drawing.Point(6, 3)
-        Me.mainExecutable_lbl.Name = "mainExecutable_lbl"
-        Me.mainExecutable_lbl.Size = New System.Drawing.Size(156, 13)
-        Me.mainExecutable_lbl.TabIndex = 1
-        Me.mainExecutable_lbl.Text = "Application Main Executable"
+        Me.mainAppExe_txt.Location = New System.Drawing.Point(6, 21)
+        Me.mainAppExe_txt.Name = "mainAppExe_txt"
+        Me.mainAppExe_txt.Size = New System.Drawing.Size(280, 20)
+        Me.mainAppExe_txt.TabIndex = 0
+        Me.mainAppExe_txt.Text = "C:\Program Files (x86)\Inno Setup 6\Examples\MyProg.exe"
+        '
+        'mainAppExeBrowse_btn
+        '
+        Me.mainAppExeBrowse_btn.Location = New System.Drawing.Point(292, 19)
+        Me.mainAppExeBrowse_btn.Name = "mainAppExeBrowse_btn"
+        Me.mainAppExeBrowse_btn.Size = New System.Drawing.Size(75, 23)
+        Me.mainAppExeBrowse_btn.TabIndex = 1
+        Me.mainAppExeBrowse_btn.Text = "Browse"
+        Me.mainAppExeBrowse_btn.UseVisualStyleBackColor = True
+        '
+        'innoDetector_btn
+        '
+        Me.innoDetector_btn.Location = New System.Drawing.Point(473, 481)
+        Me.innoDetector_btn.Name = "innoDetector_btn"
+        Me.innoDetector_btn.Size = New System.Drawing.Size(116, 23)
+        Me.innoDetector_btn.TabIndex = 12
+        Me.innoDetector_btn.Text = "Setect Inno Version"
+        Me.innoDetector_btn.UseVisualStyleBackColor = True
         '
         'EasyInno
         '
@@ -668,10 +702,11 @@ Partial Class EasyInno
         Me.wizardStyle_grp.ResumeLayout(False)
         Me.InnoCode.ResumeLayout(False)
         Me.FilesPage.ResumeLayout(False)
-        Me.FilesPage.PerformLayout()
         Me.AboutPage.ResumeLayout(False)
         Me.AboutPage.PerformLayout()
         CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.mainAppExe_grp.ResumeLayout(False)
+        Me.mainAppExe_grp.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -728,6 +763,9 @@ Partial Class EasyInno
     Friend WithEvents btn_Creation As Button
     Friend WithEvents Btn_Compile As Button
     Friend WithEvents EasyInnoSnake As PictureBox
-    Friend WithEvents mainExecutable_lbl As Label
     Friend WithEvents files_lst As ListBox
+    Friend WithEvents mainAppExe_grp As GroupBox
+    Friend WithEvents mainAppExeBrowse_btn As Button
+    Friend WithEvents mainAppExe_txt As TextBox
+    Friend WithEvents innoDetector_btn As Button
 End Class

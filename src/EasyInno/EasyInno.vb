@@ -19,4 +19,8 @@
         programLocation_cmb.SelectedIndex = 0
         wizardStyle_cmb.SelectedIndex = 0
     End Sub
+
+    Private Sub innoDetector_btn_Click(sender As Object, e As EventArgs) Handles innoDetector_btn.Click
+        SelectInnoVer.Show()
+    End Sub
 End Class
