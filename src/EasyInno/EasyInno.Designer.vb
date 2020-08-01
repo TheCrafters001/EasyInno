@@ -30,27 +30,27 @@ Partial Class EasyInno
         Me.SoftwareInfoPage = New System.Windows.Forms.TabPage()
         Me.btn_Creation = New System.Windows.Forms.Button()
         Me.Btn_Compile = New System.Windows.Forms.Button()
-        Me.SoftwareNameLabel = New System.Windows.Forms.Label()
-        Me.ApplicationPublisherTxtBox = New System.Windows.Forms.TextBox()
-        Me.SoftwareNameTxtBox = New System.Windows.Forms.TextBox()
-        Me.ApplicationPublisherLabel = New System.Windows.Forms.Label()
-        Me.SoftwareVerLabel = New System.Windows.Forms.Label()
-        Me.ApplicationSiteTxtBox = New System.Windows.Forms.TextBox()
-        Me.SoftwareVerTxtBox = New System.Windows.Forms.TextBox()
-        Me.ApplicationWebsiteLabel = New System.Windows.Forms.Label()
+        Me.softwareName_lbl = New System.Windows.Forms.Label()
+        Me.appPublisher_txt = New System.Windows.Forms.TextBox()
+        Me.softwareName_txt = New System.Windows.Forms.TextBox()
+        Me.appPublisher_lbl = New System.Windows.Forms.Label()
+        Me.softwareVer_lbl = New System.Windows.Forms.Label()
+        Me.appWebsite_txt = New System.Windows.Forms.TextBox()
+        Me.softwareVer_txt = New System.Windows.Forms.TextBox()
+        Me.appWebsite_lbl = New System.Windows.Forms.Label()
         Me.ApplicationFolderPage = New System.Windows.Forms.TabPage()
-        Me.NoInstallLocationChkBox = New System.Windows.Forms.CheckBox()
-        Me.AllowChangeInstallLocChkBox = New System.Windows.Forms.CheckBox()
-        Me.FolderNameTxtBox = New System.Windows.Forms.TextBox()
-        Me.FolderNameLabel = New System.Windows.Forms.Label()
-        Me.InstallLocationLabel = New System.Windows.Forms.Label()
-        Me.ApplicationLocationTxtBox = New System.Windows.Forms.TextBox()
-        Me.ProgramLocationDropdown = New System.Windows.Forms.ComboBox()
+        Me.noInstFolder_chk = New System.Windows.Forms.CheckBox()
+        Me.allowChangeInstLoca_chk = New System.Windows.Forms.CheckBox()
+        Me.folderName_txt = New System.Windows.Forms.TextBox()
+        Me.folderName_lbl = New System.Windows.Forms.Label()
+        Me.installLocation_lbl = New System.Windows.Forms.Label()
+        Me.appLocation_txt = New System.Windows.Forms.TextBox()
+        Me.programLocation_cmb = New System.Windows.Forms.ComboBox()
         Me.AppShortCuts = New System.Windows.Forms.TabPage()
         Me.WizardInfo = New System.Windows.Forms.TabPage()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.WizardStyleComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.wizardStyle_grp = New System.Windows.Forms.GroupBox()
+        Me.wizardStyle_cmb = New System.Windows.Forms.ComboBox()
+        Me.tip_lbl = New System.Windows.Forms.Label()
         Me.InnoCode = New System.Windows.Forms.TabPage()
         Me.InnoCodeRichTxtBox = New System.Windows.Forms.RichTextBox()
         Me.FilesPage = New System.Windows.Forms.TabPage()
@@ -76,14 +76,17 @@ Partial Class EasyInno
         Me.EasyInnoAboutBox = New System.Windows.Forms.RichTextBox()
         Me.EasyInnoAboutLabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.files_lst = New System.Windows.Forms.ListBox()
+        Me.mainExecutable_lbl = New System.Windows.Forms.Label()
         Me.MainControl.SuspendLayout()
         Me.SetupDetails.SuspendLayout()
         Me.SoftwareDetailTabControl.SuspendLayout()
         Me.SoftwareInfoPage.SuspendLayout()
         Me.ApplicationFolderPage.SuspendLayout()
         Me.WizardInfo.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.wizardStyle_grp.SuspendLayout()
         Me.InnoCode.SuspendLayout()
+        Me.FilesPage.SuspendLayout()
         Me.AboutPage.SuspendLayout()
         CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -120,7 +123,7 @@ Partial Class EasyInno
         'SetupDetails
         '
         Me.SetupDetails.Controls.Add(Me.SoftwareDetailTabControl)
-        Me.SetupDetails.Controls.Add(Me.Label1)
+        Me.SetupDetails.Controls.Add(Me.tip_lbl)
         Me.SetupDetails.Location = New System.Drawing.Point(4, 22)
         Me.SetupDetails.Name = "SetupDetails"
         Me.SetupDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -145,14 +148,15 @@ Partial Class EasyInno
         '
         Me.SoftwareInfoPage.Controls.Add(Me.btn_Creation)
         Me.SoftwareInfoPage.Controls.Add(Me.Btn_Compile)
-        Me.SoftwareInfoPage.Controls.Add(Me.SoftwareNameLabel)
-        Me.SoftwareInfoPage.Controls.Add(Me.ApplicationPublisherTxtBox)
-        Me.SoftwareInfoPage.Controls.Add(Me.SoftwareNameTxtBox)
-        Me.SoftwareInfoPage.Controls.Add(Me.ApplicationPublisherLabel)
-        Me.SoftwareInfoPage.Controls.Add(Me.SoftwareVerLabel)
-        Me.SoftwareInfoPage.Controls.Add(Me.ApplicationSiteTxtBox)
-        Me.SoftwareInfoPage.Controls.Add(Me.SoftwareVerTxtBox)
-        Me.SoftwareInfoPage.Controls.Add(Me.ApplicationWebsiteLabel)
+        Me.SoftwareInfoPage.Controls.Add(Me.softwareName_lbl)
+        Me.SoftwareInfoPage.Controls.Add(Me.appPublisher_txt)
+        Me.SoftwareInfoPage.Controls.Add(Me.softwareName_txt)
+        Me.SoftwareInfoPage.Controls.Add(Me.appPublisher_lbl)
+        Me.SoftwareInfoPage.Controls.Add(Me.softwareVer_lbl)
+        Me.SoftwareInfoPage.Controls.Add(Me.appWebsite_txt)
+        Me.SoftwareInfoPage.Controls.Add(Me.softwareVer_txt)
+        Me.SoftwareInfoPage.Controls.Add(Me.appWebsite_lbl)
+        Me.SoftwareInfoPage.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SoftwareInfoPage.Location = New System.Drawing.Point(4, 22)
         Me.SoftwareInfoPage.Name = "SoftwareInfoPage"
         Me.SoftwareInfoPage.Padding = New System.Windows.Forms.Padding(3)
@@ -181,89 +185,91 @@ Partial Class EasyInno
         Me.Btn_Compile.Text = "Compile"
         Me.Btn_Compile.UseVisualStyleBackColor = True
         '
-        'SoftwareNameLabel
+        'softwareName_lbl
         '
-        Me.SoftwareNameLabel.AutoSize = True
-        Me.SoftwareNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftwareNameLabel.Location = New System.Drawing.Point(6, 3)
-        Me.SoftwareNameLabel.Name = "SoftwareNameLabel"
-        Me.SoftwareNameLabel.Size = New System.Drawing.Size(132, 20)
-        Me.SoftwareNameLabel.TabIndex = 1
-        Me.SoftwareNameLabel.Text = "Software Name"
+        Me.softwareName_lbl.AutoSize = True
+        Me.softwareName_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.softwareName_lbl.Location = New System.Drawing.Point(6, 3)
+        Me.softwareName_lbl.Name = "softwareName_lbl"
+        Me.softwareName_lbl.Size = New System.Drawing.Size(87, 13)
+        Me.softwareName_lbl.TabIndex = 1
+        Me.softwareName_lbl.Text = "Software Name"
         '
-        'ApplicationPublisherTxtBox
+        'appPublisher_txt
         '
-        Me.ApplicationPublisherTxtBox.Location = New System.Drawing.Point(10, 118)
-        Me.ApplicationPublisherTxtBox.Name = "ApplicationPublisherTxtBox"
-        Me.ApplicationPublisherTxtBox.Size = New System.Drawing.Size(217, 20)
-        Me.ApplicationPublisherTxtBox.TabIndex = 9
-        Me.ApplicationPublisherTxtBox.Text = "My Company, Inc."
+        Me.appPublisher_txt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.appPublisher_txt.Location = New System.Drawing.Point(10, 101)
+        Me.appPublisher_txt.Name = "appPublisher_txt"
+        Me.appPublisher_txt.Size = New System.Drawing.Size(217, 22)
+        Me.appPublisher_txt.TabIndex = 9
+        Me.appPublisher_txt.Text = "My Company, Inc."
         '
-        'SoftwareNameTxtBox
+        'softwareName_txt
         '
-        Me.SoftwareNameTxtBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftwareNameTxtBox.Location = New System.Drawing.Point(10, 26)
-        Me.SoftwareNameTxtBox.Name = "SoftwareNameTxtBox"
-        Me.SoftwareNameTxtBox.Size = New System.Drawing.Size(217, 20)
-        Me.SoftwareNameTxtBox.TabIndex = 2
-        Me.SoftwareNameTxtBox.Text = "My Application"
+        Me.softwareName_txt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.softwareName_txt.Location = New System.Drawing.Point(10, 19)
+        Me.softwareName_txt.Name = "softwareName_txt"
+        Me.softwareName_txt.Size = New System.Drawing.Size(217, 22)
+        Me.softwareName_txt.TabIndex = 2
+        Me.softwareName_txt.Text = "My Application"
         '
-        'ApplicationPublisherLabel
+        'appPublisher_lbl
         '
-        Me.ApplicationPublisherLabel.AutoSize = True
-        Me.ApplicationPublisherLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplicationPublisherLabel.Location = New System.Drawing.Point(6, 95)
-        Me.ApplicationPublisherLabel.Name = "ApplicationPublisherLabel"
-        Me.ApplicationPublisherLabel.Size = New System.Drawing.Size(156, 20)
-        Me.ApplicationPublisherLabel.TabIndex = 8
-        Me.ApplicationPublisherLabel.Text = "Application Publisher"
+        Me.appPublisher_lbl.AutoSize = True
+        Me.appPublisher_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.appPublisher_lbl.Location = New System.Drawing.Point(6, 85)
+        Me.appPublisher_lbl.Name = "appPublisher_lbl"
+        Me.appPublisher_lbl.Size = New System.Drawing.Size(117, 13)
+        Me.appPublisher_lbl.TabIndex = 8
+        Me.appPublisher_lbl.Text = "Application Publisher"
         '
-        'SoftwareVerLabel
+        'softwareVer_lbl
         '
-        Me.SoftwareVerLabel.AutoSize = True
-        Me.SoftwareVerLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftwareVerLabel.Location = New System.Drawing.Point(6, 49)
-        Me.SoftwareVerLabel.Name = "SoftwareVerLabel"
-        Me.SoftwareVerLabel.Size = New System.Drawing.Size(147, 20)
-        Me.SoftwareVerLabel.TabIndex = 3
-        Me.SoftwareVerLabel.Text = "Software Version"
+        Me.softwareVer_lbl.AutoSize = True
+        Me.softwareVer_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.softwareVer_lbl.Location = New System.Drawing.Point(6, 44)
+        Me.softwareVer_lbl.Name = "softwareVer_lbl"
+        Me.softwareVer_lbl.Size = New System.Drawing.Size(94, 13)
+        Me.softwareVer_lbl.TabIndex = 3
+        Me.softwareVer_lbl.Text = "Software Version"
         '
-        'ApplicationSiteTxtBox
+        'appWebsite_txt
         '
-        Me.ApplicationSiteTxtBox.Location = New System.Drawing.Point(10, 164)
-        Me.ApplicationSiteTxtBox.Name = "ApplicationSiteTxtBox"
-        Me.ApplicationSiteTxtBox.Size = New System.Drawing.Size(217, 20)
-        Me.ApplicationSiteTxtBox.TabIndex = 7
-        Me.ApplicationSiteTxtBox.Text = "http://thecrafters001.ga/easyinno/"
+        Me.appWebsite_txt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.appWebsite_txt.Location = New System.Drawing.Point(10, 142)
+        Me.appWebsite_txt.Name = "appWebsite_txt"
+        Me.appWebsite_txt.Size = New System.Drawing.Size(217, 22)
+        Me.appWebsite_txt.TabIndex = 7
+        Me.appWebsite_txt.Text = "http://thecrafters001.ga/easyinno/"
         '
-        'SoftwareVerTxtBox
+        'softwareVer_txt
         '
-        Me.SoftwareVerTxtBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SoftwareVerTxtBox.Location = New System.Drawing.Point(10, 72)
-        Me.SoftwareVerTxtBox.Name = "SoftwareVerTxtBox"
-        Me.SoftwareVerTxtBox.Size = New System.Drawing.Size(217, 20)
-        Me.SoftwareVerTxtBox.TabIndex = 4
-        Me.SoftwareVerTxtBox.Text = "1.5"
+        Me.softwareVer_txt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.softwareVer_txt.Location = New System.Drawing.Point(10, 60)
+        Me.softwareVer_txt.Name = "softwareVer_txt"
+        Me.softwareVer_txt.Size = New System.Drawing.Size(217, 22)
+        Me.softwareVer_txt.TabIndex = 4
+        Me.softwareVer_txt.Text = "1.5"
         '
-        'ApplicationWebsiteLabel
+        'appWebsite_lbl
         '
-        Me.ApplicationWebsiteLabel.AutoSize = True
-        Me.ApplicationWebsiteLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplicationWebsiteLabel.Location = New System.Drawing.Point(6, 141)
-        Me.ApplicationWebsiteLabel.Name = "ApplicationWebsiteLabel"
-        Me.ApplicationWebsiteLabel.Size = New System.Drawing.Size(149, 20)
-        Me.ApplicationWebsiteLabel.TabIndex = 6
-        Me.ApplicationWebsiteLabel.Text = "Application Website"
+        Me.appWebsite_lbl.AutoSize = True
+        Me.appWebsite_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.appWebsite_lbl.Location = New System.Drawing.Point(7, 126)
+        Me.appWebsite_lbl.Name = "appWebsite_lbl"
+        Me.appWebsite_lbl.Size = New System.Drawing.Size(111, 13)
+        Me.appWebsite_lbl.TabIndex = 6
+        Me.appWebsite_lbl.Text = "Application Website"
         '
         'ApplicationFolderPage
         '
-        Me.ApplicationFolderPage.Controls.Add(Me.NoInstallLocationChkBox)
-        Me.ApplicationFolderPage.Controls.Add(Me.AllowChangeInstallLocChkBox)
-        Me.ApplicationFolderPage.Controls.Add(Me.FolderNameTxtBox)
-        Me.ApplicationFolderPage.Controls.Add(Me.FolderNameLabel)
-        Me.ApplicationFolderPage.Controls.Add(Me.InstallLocationLabel)
-        Me.ApplicationFolderPage.Controls.Add(Me.ApplicationLocationTxtBox)
-        Me.ApplicationFolderPage.Controls.Add(Me.ProgramLocationDropdown)
+        Me.ApplicationFolderPage.Controls.Add(Me.noInstFolder_chk)
+        Me.ApplicationFolderPage.Controls.Add(Me.allowChangeInstLoca_chk)
+        Me.ApplicationFolderPage.Controls.Add(Me.folderName_txt)
+        Me.ApplicationFolderPage.Controls.Add(Me.folderName_lbl)
+        Me.ApplicationFolderPage.Controls.Add(Me.installLocation_lbl)
+        Me.ApplicationFolderPage.Controls.Add(Me.appLocation_txt)
+        Me.ApplicationFolderPage.Controls.Add(Me.programLocation_cmb)
         Me.ApplicationFolderPage.Location = New System.Drawing.Point(4, 22)
         Me.ApplicationFolderPage.Name = "ApplicationFolderPage"
         Me.ApplicationFolderPage.Padding = New System.Windows.Forms.Padding(3)
@@ -272,73 +278,73 @@ Partial Class EasyInno
         Me.ApplicationFolderPage.Text = "Application Folder"
         Me.ApplicationFolderPage.UseVisualStyleBackColor = True
         '
-        'NoInstallLocationChkBox
+        'noInstFolder_chk
         '
-        Me.NoInstallLocationChkBox.AutoSize = True
-        Me.NoInstallLocationChkBox.Location = New System.Drawing.Point(6, 148)
-        Me.NoInstallLocationChkBox.Name = "NoInstallLocationChkBox"
-        Me.NoInstallLocationChkBox.Size = New System.Drawing.Size(202, 17)
-        Me.NoInstallLocationChkBox.TabIndex = 6
-        Me.NoInstallLocationChkBox.Text = "This application doesn't need a folder"
-        Me.NoInstallLocationChkBox.UseVisualStyleBackColor = True
+        Me.noInstFolder_chk.AutoSize = True
+        Me.noInstFolder_chk.Location = New System.Drawing.Point(6, 148)
+        Me.noInstFolder_chk.Name = "noInstFolder_chk"
+        Me.noInstFolder_chk.Size = New System.Drawing.Size(202, 17)
+        Me.noInstFolder_chk.TabIndex = 6
+        Me.noInstFolder_chk.Text = "This application doesn't need a folder"
+        Me.noInstFolder_chk.UseVisualStyleBackColor = True
         '
-        'AllowChangeInstallLocChkBox
+        'allowChangeInstLoca_chk
         '
-        Me.AllowChangeInstallLocChkBox.AutoSize = True
-        Me.AllowChangeInstallLocChkBox.Checked = True
-        Me.AllowChangeInstallLocChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.AllowChangeInstallLocChkBox.Location = New System.Drawing.Point(6, 125)
-        Me.AllowChangeInstallLocChkBox.Name = "AllowChangeInstallLocChkBox"
-        Me.AllowChangeInstallLocChkBox.Size = New System.Drawing.Size(212, 17)
-        Me.AllowChangeInstallLocChkBox.TabIndex = 5
-        Me.AllowChangeInstallLocChkBox.Text = "Allow the user to change install location"
-        Me.AllowChangeInstallLocChkBox.UseVisualStyleBackColor = True
+        Me.allowChangeInstLoca_chk.AutoSize = True
+        Me.allowChangeInstLoca_chk.Checked = True
+        Me.allowChangeInstLoca_chk.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.allowChangeInstLoca_chk.Location = New System.Drawing.Point(6, 125)
+        Me.allowChangeInstLoca_chk.Name = "allowChangeInstLoca_chk"
+        Me.allowChangeInstLoca_chk.Size = New System.Drawing.Size(212, 17)
+        Me.allowChangeInstLoca_chk.TabIndex = 5
+        Me.allowChangeInstLoca_chk.Text = "Allow the user to change install location"
+        Me.allowChangeInstLoca_chk.UseVisualStyleBackColor = True
         '
-        'FolderNameTxtBox
+        'folderName_txt
         '
-        Me.FolderNameTxtBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FolderNameTxtBox.Location = New System.Drawing.Point(3, 99)
-        Me.FolderNameTxtBox.Name = "FolderNameTxtBox"
-        Me.FolderNameTxtBox.Size = New System.Drawing.Size(277, 20)
-        Me.FolderNameTxtBox.TabIndex = 4
-        Me.FolderNameTxtBox.Text = "My Application"
+        Me.folderName_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.folderName_txt.Location = New System.Drawing.Point(3, 99)
+        Me.folderName_txt.Name = "folderName_txt"
+        Me.folderName_txt.Size = New System.Drawing.Size(277, 20)
+        Me.folderName_txt.TabIndex = 4
+        Me.folderName_txt.Text = "My Application"
         '
-        'FolderNameLabel
+        'folderName_lbl
         '
-        Me.FolderNameLabel.AutoSize = True
-        Me.FolderNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FolderNameLabel.Location = New System.Drawing.Point(6, 76)
-        Me.FolderNameLabel.Name = "FolderNameLabel"
-        Me.FolderNameLabel.Size = New System.Drawing.Size(111, 20)
-        Me.FolderNameLabel.TabIndex = 3
-        Me.FolderNameLabel.Text = "Folder Name"
+        Me.folderName_lbl.AutoSize = True
+        Me.folderName_lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.folderName_lbl.Location = New System.Drawing.Point(6, 76)
+        Me.folderName_lbl.Name = "folderName_lbl"
+        Me.folderName_lbl.Size = New System.Drawing.Size(111, 20)
+        Me.folderName_lbl.TabIndex = 3
+        Me.folderName_lbl.Text = "Folder Name"
         '
-        'InstallLocationLabel
+        'installLocation_lbl
         '
-        Me.InstallLocationLabel.AutoSize = True
-        Me.InstallLocationLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InstallLocationLabel.Location = New System.Drawing.Point(6, 3)
-        Me.InstallLocationLabel.Name = "InstallLocationLabel"
-        Me.InstallLocationLabel.Size = New System.Drawing.Size(132, 20)
-        Me.InstallLocationLabel.TabIndex = 2
-        Me.InstallLocationLabel.Text = "Install Location"
+        Me.installLocation_lbl.AutoSize = True
+        Me.installLocation_lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.installLocation_lbl.Location = New System.Drawing.Point(6, 3)
+        Me.installLocation_lbl.Name = "installLocation_lbl"
+        Me.installLocation_lbl.Size = New System.Drawing.Size(132, 20)
+        Me.installLocation_lbl.TabIndex = 2
+        Me.installLocation_lbl.Text = "Install Location"
         '
-        'ApplicationLocationTxtBox
+        'appLocation_txt
         '
-        Me.ApplicationLocationTxtBox.Location = New System.Drawing.Point(3, 53)
-        Me.ApplicationLocationTxtBox.Name = "ApplicationLocationTxtBox"
-        Me.ApplicationLocationTxtBox.Size = New System.Drawing.Size(277, 20)
-        Me.ApplicationLocationTxtBox.TabIndex = 1
+        Me.appLocation_txt.Location = New System.Drawing.Point(3, 53)
+        Me.appLocation_txt.Name = "appLocation_txt"
+        Me.appLocation_txt.Size = New System.Drawing.Size(277, 20)
+        Me.appLocation_txt.TabIndex = 1
         '
-        'ProgramLocationDropdown
+        'programLocation_cmb
         '
-        Me.ProgramLocationDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ProgramLocationDropdown.FormattingEnabled = True
-        Me.ProgramLocationDropdown.Items.AddRange(New Object() {"Program Files folder", "(Custom)"})
-        Me.ProgramLocationDropdown.Location = New System.Drawing.Point(3, 26)
-        Me.ProgramLocationDropdown.Name = "ProgramLocationDropdown"
-        Me.ProgramLocationDropdown.Size = New System.Drawing.Size(277, 21)
-        Me.ProgramLocationDropdown.TabIndex = 0
+        Me.programLocation_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.programLocation_cmb.FormattingEnabled = True
+        Me.programLocation_cmb.Items.AddRange(New Object() {"Program Files folder", "(Custom)"})
+        Me.programLocation_cmb.Location = New System.Drawing.Point(3, 26)
+        Me.programLocation_cmb.Name = "programLocation_cmb"
+        Me.programLocation_cmb.Size = New System.Drawing.Size(277, 21)
+        Me.programLocation_cmb.TabIndex = 0
         '
         'AppShortCuts
         '
@@ -351,7 +357,7 @@ Partial Class EasyInno
         '
         'WizardInfo
         '
-        Me.WizardInfo.Controls.Add(Me.GroupBox1)
+        Me.WizardInfo.Controls.Add(Me.wizardStyle_grp)
         Me.WizardInfo.Location = New System.Drawing.Point(4, 22)
         Me.WizardInfo.Name = "WizardInfo"
         Me.WizardInfo.Padding = New System.Windows.Forms.Padding(3)
@@ -360,35 +366,35 @@ Partial Class EasyInno
         Me.WizardInfo.Text = "Wizard Info"
         Me.WizardInfo.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'wizardStyle_grp
         '
-        Me.GroupBox1.Controls.Add(Me.WizardStyleComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(149, 55)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Wizard Style"
+        Me.wizardStyle_grp.Controls.Add(Me.wizardStyle_cmb)
+        Me.wizardStyle_grp.Location = New System.Drawing.Point(6, 6)
+        Me.wizardStyle_grp.Name = "wizardStyle_grp"
+        Me.wizardStyle_grp.Size = New System.Drawing.Size(149, 55)
+        Me.wizardStyle_grp.TabIndex = 0
+        Me.wizardStyle_grp.TabStop = False
+        Me.wizardStyle_grp.Text = "Wizard Style"
         '
-        'WizardStyleComboBox
+        'wizardStyle_cmb
         '
-        Me.WizardStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WizardStyleComboBox.FormattingEnabled = True
-        Me.WizardStyleComboBox.Items.AddRange(New Object() {"modern", "classic"})
-        Me.WizardStyleComboBox.Location = New System.Drawing.Point(6, 19)
-        Me.WizardStyleComboBox.Name = "WizardStyleComboBox"
-        Me.WizardStyleComboBox.Size = New System.Drawing.Size(137, 21)
-        Me.WizardStyleComboBox.TabIndex = 1
+        Me.wizardStyle_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.wizardStyle_cmb.FormattingEnabled = True
+        Me.wizardStyle_cmb.Items.AddRange(New Object() {"modern", "classic"})
+        Me.wizardStyle_cmb.Location = New System.Drawing.Point(6, 19)
+        Me.wizardStyle_cmb.Name = "wizardStyle_cmb"
+        Me.wizardStyle_cmb.Size = New System.Drawing.Size(137, 21)
+        Me.wizardStyle_cmb.TabIndex = 1
         '
-        'Label1
+        'tip_lbl
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 545)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "bold = required"
+        Me.tip_lbl.AutoSize = True
+        Me.tip_lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tip_lbl.Location = New System.Drawing.Point(3, 545)
+        Me.tip_lbl.Name = "tip_lbl"
+        Me.tip_lbl.Size = New System.Drawing.Size(92, 13)
+        Me.tip_lbl.TabIndex = 5
+        Me.tip_lbl.Text = "bold = required"
         '
         'InnoCode
         '
@@ -409,10 +415,12 @@ Partial Class EasyInno
         Me.InnoCodeRichTxtBox.ReadOnly = True
         Me.InnoCodeRichTxtBox.Size = New System.Drawing.Size(802, 561)
         Me.InnoCodeRichTxtBox.TabIndex = 0
-        Me.InnoCodeRichTxtBox.Text = ""
+        Me.InnoCodeRichTxtBox.Text = "#define MyAppName ""Sample Code Goes Here."""
         '
         'FilesPage
         '
+        Me.FilesPage.Controls.Add(Me.mainExecutable_lbl)
+        Me.FilesPage.Controls.Add(Me.files_lst)
         Me.FilesPage.Location = New System.Drawing.Point(4, 22)
         Me.FilesPage.Name = "FilesPage"
         Me.FilesPage.Padding = New System.Windows.Forms.Padding(3)
@@ -619,6 +627,24 @@ Partial Class EasyInno
         'Timer1
         '
         '
+        'files_lst
+        '
+        Me.files_lst.FormattingEnabled = True
+        Me.files_lst.Location = New System.Drawing.Point(32, 84)
+        Me.files_lst.Name = "files_lst"
+        Me.files_lst.Size = New System.Drawing.Size(120, 95)
+        Me.files_lst.TabIndex = 0
+        '
+        'mainExecutable_lbl
+        '
+        Me.mainExecutable_lbl.AutoSize = True
+        Me.mainExecutable_lbl.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mainExecutable_lbl.Location = New System.Drawing.Point(6, 3)
+        Me.mainExecutable_lbl.Name = "mainExecutable_lbl"
+        Me.mainExecutable_lbl.Size = New System.Drawing.Size(156, 13)
+        Me.mainExecutable_lbl.TabIndex = 1
+        Me.mainExecutable_lbl.Text = "Application Main Executable"
+        '
         'EasyInno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -639,8 +665,10 @@ Partial Class EasyInno
         Me.ApplicationFolderPage.ResumeLayout(False)
         Me.ApplicationFolderPage.PerformLayout()
         Me.WizardInfo.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
+        Me.wizardStyle_grp.ResumeLayout(False)
         Me.InnoCode.ResumeLayout(False)
+        Me.FilesPage.ResumeLayout(False)
+        Me.FilesPage.PerformLayout()
         Me.AboutPage.ResumeLayout(False)
         Me.AboutPage.PerformLayout()
         CType(Me.EasyInnoSnake, System.ComponentModel.ISupportInitialize).EndInit()
@@ -675,29 +703,31 @@ Partial Class EasyInno
     Friend WithEvents SoftwareDetailTabControl As TabControl
     Friend WithEvents SoftwareInfoPage As TabPage
     Friend WithEvents ApplicationFolderPage As TabPage
-    Friend WithEvents ApplicationPublisherTxtBox As TextBox
-    Friend WithEvents ApplicationPublisherLabel As Label
-    Friend WithEvents ApplicationSiteTxtBox As TextBox
-    Friend WithEvents ApplicationWebsiteLabel As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents SoftwareVerTxtBox As TextBox
-    Friend WithEvents SoftwareVerLabel As Label
-    Friend WithEvents SoftwareNameTxtBox As TextBox
-    Friend WithEvents SoftwareNameLabel As Label
-    Friend WithEvents ProgramLocationDropdown As ComboBox
+    Friend WithEvents appPublisher_txt As TextBox
+    Friend WithEvents appPublisher_lbl As Label
+    Friend WithEvents appWebsite_txt As TextBox
+    Friend WithEvents appWebsite_lbl As Label
+    Friend WithEvents tip_lbl As Label
+    Friend WithEvents softwareVer_txt As TextBox
+    Friend WithEvents softwareVer_lbl As Label
+    Friend WithEvents softwareName_txt As TextBox
+    Friend WithEvents softwareName_lbl As Label
+    Friend WithEvents programLocation_cmb As ComboBox
     Friend WithEvents InnoCodeRichTxtBox As RichTextBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents ApplicationLocationTxtBox As TextBox
-    Friend WithEvents InstallLocationLabel As Label
-    Friend WithEvents FolderNameTxtBox As TextBox
-    Friend WithEvents FolderNameLabel As Label
-    Friend WithEvents NoInstallLocationChkBox As CheckBox
-    Friend WithEvents AllowChangeInstallLocChkBox As CheckBox
+    Friend WithEvents appLocation_txt As TextBox
+    Friend WithEvents installLocation_lbl As Label
+    Friend WithEvents folderName_txt As TextBox
+    Friend WithEvents folderName_lbl As Label
+    Friend WithEvents noInstFolder_chk As CheckBox
+    Friend WithEvents allowChangeInstLoca_chk As CheckBox
     Friend WithEvents AppShortCuts As TabPage
     Friend WithEvents WizardInfo As TabPage
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents WizardStyleComboBox As ComboBox
+    Friend WithEvents wizardStyle_grp As GroupBox
+    Friend WithEvents wizardStyle_cmb As ComboBox
     Friend WithEvents btn_Creation As Button
     Friend WithEvents Btn_Compile As Button
     Friend WithEvents EasyInnoSnake As PictureBox
+    Friend WithEvents mainExecutable_lbl As Label
+    Friend WithEvents files_lst As ListBox
 End Class

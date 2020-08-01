@@ -146,5 +146,8 @@
   <ItemGroup>
     <None Include="Resources\EasyInno Icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Wizard\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
